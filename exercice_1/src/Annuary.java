@@ -5,7 +5,7 @@ public class Annuary {
     private List<Person> persons;
 
     public Annuary(){
-        this.persons = new ArrayList();
+        this.persons = new ArrayList<>();
     }
 
     public List<Person> getAnnuary(){

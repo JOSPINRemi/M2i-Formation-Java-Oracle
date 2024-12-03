@@ -10,24 +10,22 @@ public class IHM {
     }
 
     public void start(){
-        while(true) {
+        int choice;
+        do {
             System.out.println("Menu :");
             System.out.println("1. Ajouter un contact");
             System.out.println("2. Lister les contacts");
             System.out.println("4. Quitter");
-            int choice = input.nextInt();
+            choice = input.nextInt();
             input.nextLine();
             switch(choice){
                 case 1 -> addContact();
                 case 2 -> {
-                    System.out.println("Annuary");
-                    annuary.getAnnuary();
-                }
-                case 4 -> {
-                    break;
+                    System.out.println("Annuary :");
+                    System.out.println(annuary.getAnnuary());
                 }
             }
-        }
+        }while (choice != 4);
     }
 
     public void addContact(){
