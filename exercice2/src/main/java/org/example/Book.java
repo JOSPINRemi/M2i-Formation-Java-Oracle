@@ -1,8 +1,8 @@
 package org.example;
 
-public class Book extends LibraryItem {
-    private String author;
-    private String genre;
+public final class Book extends LibraryItem {
+    private final String author;
+    private final String genre;
 
     public Book(int id, String title, int publicationYear, String author, String genre) {
         super(id, title, publicationYear);
@@ -12,6 +12,6 @@ public class Book extends LibraryItem {
 
     @Override
     public String getDetails() {
-        return id + " - " + title + " - " + author + " - " + genre;
+        return "Livre : [Titre : " + title + ", Auteur : " + author + ", Genre : " + genre + ", Année : " + publicationYear + "]";
     }
 }

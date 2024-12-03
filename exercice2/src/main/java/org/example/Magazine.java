@@ -1,7 +1,7 @@
 package org.example;
 
-public class Magazine extends LibraryItem {
-    private int issueNumber;
+public final class Magazine extends LibraryItem {
+    private final int issueNumber;
 
     public Magazine(int id, String title, int publicationYear, int issueNumber) {
         super(id, title, publicationYear);
@@ -10,6 +10,6 @@ public class Magazine extends LibraryItem {
 
     @Override
     public String getDetails() {
-        return id + " - " + title + " - " + publicationYear + " - " + issueNumber;
+        return "Magazine : [Titre : " + title + ", Numéro : " + issueNumber + ", Année : " + publicationYear + "]";
     }
 }

@@ -1,6 +1,6 @@
 package org.example;
 
-public abstract class LibraryItem {
+public sealed abstract class LibraryItem permits Book, Magazine {
     protected int id;
     protected String title;
     protected int publicationYear;
