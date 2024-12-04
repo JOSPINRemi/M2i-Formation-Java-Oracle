@@ -6,6 +6,8 @@ public class Main {
 
         CurrencyAdapter currencyAdapter = new CurrencyConverterAdapter(converter);
 
-        System.out.println("10€ to USD " + currencyAdapter.convert("EUR", "USD", 10));
+        System.out.println("100€ en GBP : " + currencyAdapter.convert("EUR", "GBP", 100));
+
+        System.out.println("60 GBP en USD : " + currencyAdapter.convert("GBP", "USD", 60));
     }
 }
