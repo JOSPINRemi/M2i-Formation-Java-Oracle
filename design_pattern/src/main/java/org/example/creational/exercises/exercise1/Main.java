@@ -12,9 +12,12 @@ public class Main {
         config.put("db.port", "5432");
         config.put("app.name", "MyApplication");
 
-        cM.addConfiguration(config);
+        cM.loadConfiguration(config);
 
-        System.out.println(config);
-        System.out.println(cM);
+        System.out.println(cM.getConfiguration("app.name"));
+
+        cM.loadConfiguration(
+                Map.of("toto", "tata")
+        );
     }
 }

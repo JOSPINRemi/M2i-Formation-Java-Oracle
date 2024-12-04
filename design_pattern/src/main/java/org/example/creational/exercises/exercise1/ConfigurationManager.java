@@ -4,10 +4,7 @@ import java.util.Map;
 
 public class ConfigurationManager {
     private static ConfigurationManager instance;
-
-    private String host;
-    private int port;
-    private String name;
+    private Map<String, String> configuration;
 
     private ConfigurationManager() {
     }
@@ -19,18 +16,15 @@ public class ConfigurationManager {
         return instance;
     }
 
-    @Override
-    public String toString() {
-        return "ConfigurationManager{" +
-                "host='" + host + '\'' +
-                ", port=" + port +
-                ", name='" + name + '\'' +
-                '}';
+    public void loadConfiguration(Map<String, String> configuration) {
+        if (this.configuration == null) {
+            this.configuration = configuration;
+        }else {
+            System.out.println("Configuration déjà chargée");
+        }
     }
 
-    public void addConfiguration(Map<String, String> config) {
-        host = config.get("db.host");
-        port = Integer.parseInt(config.get("db.port"));
-        name = config.get("app.name");
+    public String getConfiguration(String key) {
+        return configuration.getOrDefault(key, "Clé inexistante");
     }
 }
