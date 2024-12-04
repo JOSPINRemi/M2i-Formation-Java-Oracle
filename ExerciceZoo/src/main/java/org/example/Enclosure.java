@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -8,10 +9,10 @@ public class Enclosure {
     private String name;
     private List<Animal> animals;
 
-    public Enclosure(int id, String name, List<Animal> animals) {
+    public Enclosure(int id, String name) {
         this.id = id;
         this.name = name;
-        this.animals = animals;
+        this.animals = new ArrayList<>();
     }
 
     public int getId() {
@@ -32,5 +33,13 @@ public class Enclosure {
 
     public void removeAnimal(int id) {
         animals = animals.stream().filter(animal -> animal.getId() == id).collect(Collectors.toList());
+    }
+
+    @Override
+    public String toString() {
+        return "Enclosure{" +
+                "id=" + id +
+                ", name='" + name +
+                '}';
     }
 }
