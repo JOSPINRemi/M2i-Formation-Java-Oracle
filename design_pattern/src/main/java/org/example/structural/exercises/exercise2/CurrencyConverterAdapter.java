@@ -9,7 +9,7 @@ public class CurrencyConverterAdapter implements CurrencyAdapter {
 
     @Override
     public double convert(String fromCurrency, String toCurrency, double amount) {
-        double amountInUSD =;
-        return ;
+        double amountInUSD = converter.convertToUSD(fromCurrency, amount);
+        return converter.convertFromUSD(toCurrency, amountInUSD);
     }
 }
