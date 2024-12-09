@@ -1,4 +1,4 @@
-package org.example;
+package org.example.exercice1;
 
 @FunctionalInterface
 public interface Calculator {

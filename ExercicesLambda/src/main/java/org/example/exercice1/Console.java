@@ -1,6 +1,6 @@
-package org.example.ihm;
+package org.example.exercice1.ihm;
 
-import org.example.Calculator;
+import org.example.exercice1.Calculator;
 
 import java.util.Map;
 import java.util.Scanner;

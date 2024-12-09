@@ -1,6 +1,6 @@
-package org.example;
+package org.example.exercice1;
 
-import org.example.ihm.Console;
+import org.example.exercice1.ihm.Console;
 
 import java.util.HashMap;
 import java.util.Map;
