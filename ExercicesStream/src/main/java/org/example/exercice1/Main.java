@@ -85,7 +85,22 @@ public class Main {
                     .forEach((key, value) -> {
                         System.out.println(key + ": " + value.getFirst());
                     });*/
-            System.out.println("Réalisateurs ayant réalisés plus de 50 films");
+            /*System.out.println("Réalisateurs ayant réalisés plus de 50 films");
+            movies.stream()
+                    .collect(Collectors.groupingBy(
+                            Movie::getDirector,
+                            Collectors.counting()
+                    ))
+                    .entrySet()
+                    .stream()
+                    .filter(entry -> entry.getValue() > 50)
+                    .forEach(entry -> System.out.println(entry.getKey() + " : " + entry.getValue()));*/
+            System.out.println("Nombre total d'entrées pour les films sortis entre 1990 et 2000");
+            System.out.println(movies.stream().filter(movie -> {
+                        int releaseYear = movie.getReleaseDate().getYear();
+                        return releaseYear >= 1990 && releaseYear <= 2000;
+                    })
+                    .mapToLong(Movie::getAdmissionNumber).sum());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
