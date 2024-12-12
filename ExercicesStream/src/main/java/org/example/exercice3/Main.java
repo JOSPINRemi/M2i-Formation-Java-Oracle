@@ -74,13 +74,31 @@ public class Main {
 
 //        10
         /*livres.stream()
-                .collect(Collectors.groupingBy(Livre::getAuteur), Collectors.counting())*/
+                .collect(Collectors.groupingBy(
+                        Livre::getAuteur, Collectors.counting()
+                ))
+                .entrySet().stream()
+                .filter(entry -> entry.getValue() > 17)
+                .forEach(entry -> System.out.println(entry.getKey() + " : " + entry.getValue()));*/
 
 //        11
+        /*livres.stream()
+                .collect(Collectors.groupingBy(
+                        Livre::getGenre, Collectors.counting()
+                ))
+                .forEach((k, v) -> System.out.println(k + ": " + v));*/
 
 //        12
+        /*livres.stream()
+                .filter(livre -> livre.isEstDisponible() && livre.getPrix() < 15)
+                .forEach(System.out::println);*/
 
 //        13
-
+        livres.stream()
+                .collect(Collectors.groupingBy(
+                        livre -> livre.getDatePublication().getYear(),
+                        Collectors.summingInt(Livre::getNbPages)
+                ))
+                .forEach((k, v) -> System.out.println(k + ": " + v));
     }
 }
