@@ -22,7 +22,7 @@ public class CalculateurCallable implements Callable<Integer> {
             try {
                 System.out.println("Le cube de " + i + " est " + result.get());
             } catch (InterruptedException | ExecutionException e) {
-                System.out.println();
+                System.out.println("Erreur lors de la récupération");
             }
         }
         executor.shutdown();
