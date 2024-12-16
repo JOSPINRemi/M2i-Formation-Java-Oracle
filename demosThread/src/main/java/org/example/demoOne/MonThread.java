@@ -1,4 +1,4 @@
-package org.example;
+package org.example.demoOne;
 
 public class MonThread extends Thread {
     @Override

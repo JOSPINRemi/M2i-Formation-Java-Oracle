@@ -1,4 +1,4 @@
-package org.example;
+package org.example.demoOne;
 
 import java.util.concurrent.*;
 

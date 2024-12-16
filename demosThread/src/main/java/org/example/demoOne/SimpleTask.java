@@ -1,4 +1,4 @@
-package org.example;
+package org.example.demoOne;
 
 public class SimpleTask implements Runnable {
     private final String threadName;

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.demoOne;
 
 public class MonRunnable implements Runnable {
     @Override
