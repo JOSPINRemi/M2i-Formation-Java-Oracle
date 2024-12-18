@@ -1,7 +1,5 @@
 package org.example.exercice11;
 
-import java.util.Random;
-
 public class Main {
     private static final Object lock = new Object();
     private static BankAccount bankAccount;
