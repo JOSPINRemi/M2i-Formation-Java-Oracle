@@ -15,23 +15,24 @@ public class Main {
     private static void demo() throws InterruptedException {
         sharedResource = new SharedResource("imprimante");
         Thread[] threads = createThreads(() -> {
-            for (int i = 0; i < 3; i++) {
+            try {
                 System.out.println(Thread.currentThread().getName() + " tente d'utiliser " + sharedResource.getName());
-                try {
-                    if (reentrantLock.tryLock(10, TimeUnit.SECONDS))
+                if (reentrantLock.tryLock(2, TimeUnit.SECONDS)) {
+                    try {
                         System.out.println(Thread.currentThread().getName() + " a acquis le verrou et utilise " + sharedResource.getName());
-                    else
-                        System.out.println(Thread.currentThread().getName() + " n'a pas pu accéder à " + sharedResource.getName() + "(temps d'attente dépassé");
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                } finally {
-                    reentrantLock.unlock();
-                    System.out.println(Thread.currentThread().getName() + " a terminé d'utiliser " + sharedResource.getName() + " et libère le verrou");
-                }
+                        Thread.sleep(1000);
+                    } finally {
+                        System.out.println(Thread.currentThread().getName() + " a terminé d'utiliser " + sharedResource.getName() + " et libère le verrou");
+                        reentrantLock.unlock();
+                    }
+                } else
+                    System.out.println(Thread.currentThread().getName() + " n'a pas pu accéder à " + sharedResource.getName() + " (temps d'attente dépassé)");
+            } catch (InterruptedException e) {
+                System.out.println(Thread.currentThread().getName() + " a été interrompu");
             }
         }, 3);
         runThreads(threads);
-        System.out.println();
+        System.out.println("Fin des tâches");
     }
 
     private static Thread[] createThreads(Runnable task, int size) {
