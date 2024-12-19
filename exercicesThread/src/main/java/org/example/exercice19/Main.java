@@ -26,9 +26,8 @@ public class Main {
             }
         }, "Consumer");
 
-        consumer.start();
-        Thread.sleep(1000);
         producer.start();
+        consumer.start();
 
         producer.join();
         consumer.join();
