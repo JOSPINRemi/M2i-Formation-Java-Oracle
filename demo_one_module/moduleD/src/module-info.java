@@ -1,3 +1,3 @@
 module moduleD {
-    requires
+    requires moduleC;
 }
