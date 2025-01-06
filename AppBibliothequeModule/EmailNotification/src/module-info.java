@@ -1,0 +1,3 @@
+module EmailNotification {
+    requires NotificationService;
+}
