@@ -9,7 +9,7 @@ public class Main {
         String srcFilePath = "source.txt";
         String word = "java";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("result.txt"))){
-            writer.write("Dans le fichier, il a " + TextFileHandler.occurrencesNumber(word, srcFilePath) + " fois le mot " + word);
+            writer.write("Dans le fichier, il a " + TextFileHandler.occurrencesNumber(srcFilePath, word) + " fois le mot " + word);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
