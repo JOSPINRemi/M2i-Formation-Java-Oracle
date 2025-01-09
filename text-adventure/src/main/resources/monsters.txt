@@ -1,0 +1,10 @@
+Gobelin,15,30
+Orque,25,50
+Troll,40,80
+Squelette,10,20
+Zombie,12,25
+Dragon,100,200
+Vampire,35,70
+Loup-Garou,45,90
+Araignée Géante,20,40
+Fantôme,18,35
