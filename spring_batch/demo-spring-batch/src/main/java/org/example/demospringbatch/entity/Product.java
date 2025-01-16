@@ -7,16 +7,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Entity
 public class Product {
     @Id
     private long id;
     private String name;
     private double price;
+
+    public Product() {
+    }
+
+    public Product(long id, String name, double price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
 
     public long getId() {
         return id;

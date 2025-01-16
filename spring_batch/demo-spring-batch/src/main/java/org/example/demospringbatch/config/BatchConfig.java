@@ -24,7 +24,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableBatchProcessing
 public class BatchConfig {
     public BatchConfig() {
     }
@@ -39,9 +38,7 @@ public class BatchConfig {
     @Bean
     public Step step(JobRepository jobRepository, PlatformTransactionManager transactionManager, ItemReader<Product> reader, ItemProcessor<Product, Product> processor, ItemWriter<Product> writer) {
         return new StepBuilder("step", jobRepository)
-                .<Product, Product>chunk(10)
-                .transactionManager(transactionManager)
-                .chunk(10)
+                .<Product, Product>chunk(10, transactionManager)
                 .reader(reader)
                 .processor(processor)
                 .writer(writer)

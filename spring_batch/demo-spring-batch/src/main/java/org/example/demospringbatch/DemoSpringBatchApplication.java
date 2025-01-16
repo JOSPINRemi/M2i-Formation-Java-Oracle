@@ -16,24 +16,24 @@ import org.springframework.scheduling.annotation.Scheduled;
 @SpringBootApplication
 @EnableScheduling
 public class DemoSpringBatchApplication {
-    private final JobLauncher jobLauncher;
+    /*private final JobLauncher jobLauncher;
     private final Job importJob;
 
     public DemoSpringBatchApplication(JobLauncher jobLauncher, Job importJob) {
         this.jobLauncher = jobLauncher;
         this.importJob = importJob;
-    }
+    }*/
 
     public static void main(String[] args) {
         SpringApplication.run(DemoSpringBatchApplication.class, args);
     }
 
-    @Scheduled(fixedRate = 20000)
+    /*@Scheduled(fixedRate = 20000)
     public void performJob() throws Exception {
         JobParameters jobParameters = new JobParametersBuilder()
                 .addLong("time", System.currentTimeMillis())
                 .toJobParameters();
 
         jobLauncher.run(importJob, jobParameters);
-    }
+    }*/
 }
