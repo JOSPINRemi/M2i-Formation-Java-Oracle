@@ -53,7 +53,7 @@ public class BatchConfig {
     public JdbcBatchItemWriter<Dinosaur> writer(DataSource dataSource) {
         return new JdbcBatchItemWriterBuilder<Dinosaur>()
                 .itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
-                .sql("INSERT INTO dinosaur (id, name, species, age_million_years) VALUES (:id, :name, :species, :age_million_years)")
+                .sql("INSERT INTO dinosaur (id, name, species, age_million_years) VALUES (:id, :name, :species, :ageMillionYears)")
                 .dataSource(dataSource).build();
     }
 
