@@ -5,19 +5,20 @@ import reactor.core.publisher.Flux;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ArticleService {
-    private final List<String> articles;
+    private final List<Article> articles;
 
     public ArticleService() {
         articles = new ArrayList<>();
-        articles.add("Introduction to Spring WebFlux");
-        articles.add("Reactive Programming with Project Reactor");
-        articles.add("Building APIs with Spring Boot");
+        articles.add(new Article(UUID.randomUUID(), "Introduction to Spring WebFlux"));
+        articles.add(new Article(UUID.randomUUID(), "Reactive Programming with Project Reactor"));
+        articles.add(new Article(UUID.randomUUID(), "Building APIs with Spring Boot"));
     }
 
-    public Flux<String> getArticles() {
+    public Flux<Article> getArticles() {
         return Flux.fromIterable(articles);
     }
 }

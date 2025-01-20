@@ -17,6 +17,6 @@ public class ArticleController {
 
     @GetMapping("")
     public Flux<String> getArticles() {
-        return articleService.getArticles();
+        return articleService.getArticles().map(Article::getTitle);
     }
 }
